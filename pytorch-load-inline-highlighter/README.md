@@ -112,61 +112,46 @@ load_inline(
 
 ## Publishing to VS Code Marketplace
 
-To publish this extension to the VS Code Marketplace:
+### Method 1: Web Upload (Recommended)
 
-### 1. Create Publisher Account
-- Go to https://marketplace.visualstudio.com/manage
-- Sign in with Microsoft account
-- Create a new publisher ID
+1. **Create Publisher Account**:
+   - Go to https://marketplace.visualstudio.com/manage
+   - Sign in with your Microsoft account
+   - Create a new publisher with ID `msaroufim`
 
-### 2. Generate Personal Access Token
-- Visit https://dev.azure.com/your-organization/_usersSettings/tokens
-- Create new token with "Marketplace (Manage)" scope
-- Copy the token (you won't see it again)
+2. **Upload Extension**:
+   - Click "New Extension" → "Visual Studio Code"
+   - Upload the `pytorch-load-inline-highlighter-1.0.0.vsix` file
+   - The marketplace will automatically read metadata from the package
+   - Review the details and click "Upload"
 
-### 3. Update package.json
-```json
-{
-  "publisher": "your-publisher-id",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/your-username/pytorch-load-inline-highlighter"
-  }
-}
-```
+3. **Verify Information**:
+   - **Display Name**: PyTorch load_inline() Syntax Highlighter
+   - **Publisher**: msaroufim
+   - **Version**: 1.0.0
+   - **Repository**: https://github.com/msaroufim/pytorch-load-inline-highlighter
 
-### 4. Create LICENSE file
-```bash
-echo "MIT License
+### Method 2: Command Line (Alternative)
 
-Copyright (c) 2024 Your Name
+1. **Generate Personal Access Token**:
+   - Visit https://dev.azure.com (create account if needed)
+   - Go to User Settings → Personal Access Tokens
+   - Create token with "Marketplace (Manage)" scope
 
-Permission is hereby granted..." > LICENSE
-```
+2. **Publish via CLI**:
+   ```bash
+   cd pytorch-load-inline-highlighter
+   npx vsce login msaroufim
+   # Enter your Personal Access Token when prompted
+   npx vsce publish
+   ```
 
-### 5. Install vsce globally
-```bash
-npm install -g @vscode/vsce
-```
+### Updating the Extension
 
-### 6. Login to publisher
-```bash
-vsce login your-publisher-id
-# Enter your Personal Access Token when prompted
-```
-
-### 7. Publish the extension
-```bash
-vsce publish
-# Or specify version: vsce publish minor
-```
-
-### 8. Update existing extension
-```bash
-vsce publish patch  # for bug fixes (0.2.0 -> 0.2.1)
-vsce publish minor  # for new features (0.2.0 -> 0.3.0)
-vsce publish major  # for breaking changes (0.2.0 -> 1.0.0)
-```
+For future updates:
+- Increment version in `package.json`
+- Run `npx vsce package` to create new `.vsix` file
+- Upload new version via web interface or CLI
 
 ## License
 
