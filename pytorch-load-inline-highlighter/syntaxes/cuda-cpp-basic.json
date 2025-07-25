@@ -1,0 +1,44 @@
+{
+  "scopeName": "source.cuda-cpp-basic",
+  "patterns": [
+    {
+      "include": "source.cpp"
+    },
+    {
+      "comment": "CUDA kernel keywords",
+      "name": "storage.type.cuda",
+      "match": "\\b(__global__|__device__|__host__|__shared__|__constant__)\\b"
+    },
+    {
+      "comment": "CUDA built-in variables",
+      "name": "variable.language.cuda",
+      "match": "\\b(threadIdx|blockIdx|blockDim|gridDim|warpSize)\\.(x|y|z)\\b"
+    },
+    {
+      "comment": "HIP built-in variables",
+      "name": "variable.language.cuda",
+      "match": "\\b(hipThreadIdx_x|hipThreadIdx_y|hipThreadIdx_z|hipBlockIdx_x|hipBlockIdx_y|hipBlockIdx_z|hipBlockDim_x|hipBlockDim_y|hipBlockDim_z|hipGridDim_x|hipGridDim_y|hipGridDim_z)\\b"
+    },
+    {
+      "comment": "CUDA/HIP synchronization functions",
+      "name": "support.function.cuda",
+      "match": "\\b(__syncthreads|__syncwarp|hipDeviceSynchronize|cudaDeviceSynchronize|hipLaunchKernelGGL)\\b"
+    },
+    {
+      "comment": "CUDA/HIP memory functions",
+      "name": "support.function.cuda",
+      "match": "\\b(cudaMalloc|cudaFree|cudaMemcpy|hipMalloc|hipFree|hipMemcpy)\\b"
+    },
+    {
+      "comment": "Kernel launch syntax",
+      "begin": "<<<",
+      "end": ">>>",
+      "name": "meta.kernel-launch.cuda",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    }
+  ]
+}

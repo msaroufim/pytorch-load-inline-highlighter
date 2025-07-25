@@ -1,0 +1,132 @@
+{
+  "scopeName": "source.python.embedded.hip.pytorch",
+  "injectionSelector": "L:source.python -string -comment",
+  "patterns": [
+    {
+      "comment": "HIP code in hip_sources parameter",
+      "begin": "(?<=hip_sources\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.hip.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "HIP code in variables ending with _hip",
+      "begin": "(?<=\\b\\w*_hip\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.hip.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "HIP code in variables starting with hip_",
+      "begin": "(?<=\\bhip_\\w*\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.hip.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "HIP code in hip_kernel_code variable",
+      "begin": "(?<=\\bhip_kernel_code\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.hip.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "HIP code detection by content - __global__ or __device__ keywords (HIP uses same keywords)",
+      "begin": "([\"']{1,3})(?=.*(__global__|__device__|__host__|hipLaunch|hipDeviceSynchronize))",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.hip.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "HIP code detection by content - HIP runtime functions",
+      "begin": "([\"']{1,3})(?=.*(hipBlockIdx_|hipThreadIdx_|hipBlockDim_|hipGridDim_))",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.hip.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    }
+  ]
+}

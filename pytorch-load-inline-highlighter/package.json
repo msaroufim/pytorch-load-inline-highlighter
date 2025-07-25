@@ -1,0 +1,79 @@
+{
+  "name": "pytorch-load-inline-highlighter",
+  "displayName": "PyTorch load_inline() Syntax Highlighter",
+  "description": "Syntax highlighting for C++/CUDA/HIP/ROCm code within PyTorch load_inline() string literals",
+  "version": "0.2.0",
+  "publisher": "pytorch-dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pytorch-labs/load-inline-syntax-highlighter"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "pytorch",
+    "cuda",
+    "hip",
+    "rocm",
+    "cpp",
+    "c++",
+    "load_inline",
+    "syntax highlighting",
+    "embedded language"
+  ],
+  "activationEvents": [
+    "onLanguage:python"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "grammars": [
+      {
+        "scopeName": "source.python.embedded.cpp.pytorch",
+        "path": "./syntaxes/python-cpp-injection.json",
+        "injectTo": [
+          "source.python"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.cpp.pytorch": "cpp"
+        }
+      },
+      {
+        "scopeName": "source.python.embedded.cuda.pytorch",
+        "path": "./syntaxes/python-cuda-injection.json",
+        "injectTo": [
+          "source.python"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.cuda.pytorch": "cuda-cpp"
+        }
+      },
+      {
+        "scopeName": "source.python.embedded.hip.pytorch",
+        "path": "./syntaxes/python-hip-injection.json",
+        "injectTo": [
+          "source.python"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.hip.pytorch": "cuda-cpp"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "install-extension": "code --install-extension pytorch-load-inline-highlighter-*.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4",
+    "vsce": "^2.15.0"
+  }
+}

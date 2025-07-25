@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@vscode/vsce": "^3.6.0",
+    "vsce": "^2.15.0"
+  }
+}

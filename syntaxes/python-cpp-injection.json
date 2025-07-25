@@ -1,0 +1,111 @@
+{
+  "scopeName": "source.python.embedded.cpp.pytorch",
+  "injectionSelector": "L:source.python -string -comment",
+  "patterns": [
+    {
+      "comment": "C++ code in cpp_sources parameter",
+      "begin": "(?<=cpp_sources\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cpp.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "C++ code in variables ending with _cpp",
+      "begin": "(?<=\\b\\w*_cpp\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cpp.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "C++ code in variables starting with cpp_",
+      "begin": "(?<=\\bcpp_\\w*\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cpp.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "C++ code in specific variable names",
+      "begin": "(?<=\\b(cpp_code|cpp_source|cpp_kernel)\\s*=\\s*)([\"']{1,3})",
+      "end": "\\2",
+      "beginCaptures": {
+        "2": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "2": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cpp.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    },
+    {
+      "comment": "C++ code detection by content - torch::Tensor declarations",
+      "begin": "([\"']{1,3})(?=.*torch::Tensor)",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cpp.pytorch",
+      "patterns": [
+        {
+          "include": "source.cpp"
+        }
+      ]
+    }
+  ]
+}

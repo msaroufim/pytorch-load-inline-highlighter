@@ -1,0 +1,153 @@
+{
+  "scopeName": "source.python.embedded.cuda.pytorch",
+  "injectionSelector": "L:source.python -string -comment",
+  "patterns": [
+    {
+      "comment": "CUDA code in cuda_sources parameter",
+      "begin": "(?<=cuda_sources\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cuda.pytorch",
+      "patterns": [
+        {
+          "include": "source.cuda-cpp"
+        }
+      ]
+    },
+    {
+      "comment": "CUDA code in variables ending with _cuda",
+      "begin": "(?<=\\b\\w*_cuda\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cuda.pytorch",
+      "patterns": [
+        {
+          "include": "source.cuda-cpp"
+        }
+      ]
+    },
+    {
+      "comment": "CUDA code in variables ending with _kernel",
+      "begin": "(?<=\\b\\w*_kernel\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cuda.pytorch",
+      "patterns": [
+        {
+          "include": "source.cuda-cpp"
+        }
+      ]
+    },
+    {
+      "comment": "CUDA code in variables starting with cuda_",
+      "begin": "(?<=\\bcuda_\\w*\\s*=\\s*)([\"']{1,3})",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cuda.pytorch",
+      "patterns": [
+        {
+          "include": "source.cuda-cpp"
+        }
+      ]
+    },
+    {
+      "comment": "CUDA code in specific variable names",
+      "begin": "(?<=\\b(cuda_code|cuda_source|cuda_kernel_code|kernel_code)\\s*=\\s*)([\"']{1,3})",
+      "end": "\\2",
+      "beginCaptures": {
+        "2": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "2": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cuda.pytorch",
+      "patterns": [
+        {
+          "include": "source.cuda-cpp"
+        }
+      ]
+    },
+    {
+      "comment": "CUDA code detection by content - __global__ or __device__ keywords",
+      "begin": "([\"']{1,3})(?=.*(__global__|__device__|__host__))",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cuda.pytorch",
+      "patterns": [
+        {
+          "include": "source.cuda-cpp"
+        }
+      ]
+    },
+    {
+      "comment": "CUDA code detection by content - CUDA runtime functions",
+      "begin": "([\"']{1,3})(?=.*(blockIdx|threadIdx|blockDim|gridDim))",
+      "end": "\\1",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.cuda.pytorch",
+      "patterns": [
+        {
+          "include": "source.cuda-cpp"
+        }
+      ]
+    }
+  ]
+}
