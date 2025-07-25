@@ -2,7 +2,7 @@
   "name": "pytorch-load-inline-highlighter",
   "displayName": "PyTorch load_inline() Syntax Highlighter",
   "description": "Syntax highlighting for C++/CUDA/HIP/ROCm code within PyTorch load_inline() string literals",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "msaroufim",
   "author": {
     "name": "Mark Saroufim",

@@ -2,6 +2,8 @@
 
 A Visual Studio Code extension that provides syntax highlighting for C++, CUDA, and HIP/ROCm code within Python string literals used with PyTorch's `load_inline()` function.
 
+![Extension in Action](img/screen.png)
+
 ## Features
 
 - **Automatic Detection**: Recognizes C++/CUDA/HIP/ROCm code in various contexts:
@@ -152,6 +154,10 @@ For future updates:
 - Increment version in `package.json`
 - Run `npx vsce package` to create new `.vsix` file
 - Upload new version via web interface or CLI
+
+## Acknowledgements
+
+Thank you to Steven Arellano for giving me the idea to just go ahead and do this and thank you Claude for doing it.
 
 ## License
 
