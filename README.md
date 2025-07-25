@@ -4,6 +4,11 @@ A Visual Studio Code extension that provides syntax highlighting for C++ and CUD
 
 ![screen.png](img/screen.png)
 
+## Installation
+
+It's this guy
+https://marketplace.visualstudio.com/items?itemName=msaroufim.pytorch-load-inline-highlighter
+
 ## Features
 
 - **Automatic Detection**: Recognizes C++/CUDA code in various contexts:
