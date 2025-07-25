@@ -2,6 +2,8 @@
 
 A Visual Studio Code extension that provides syntax highlighting for C++ and CUDA code within Python string literals used with PyTorch's `load_inline()` function.
 
+![screen.png](img/screen.png)
+
 ## Features
 
 - **Automatic Detection**: Recognizes C++/CUDA code in various contexts:
